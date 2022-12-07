@@ -10,11 +10,20 @@ body {
   height: 100vh;
   width: 100vw;
   font-family: "Poppins";
-  /* background-color: rgb(3, 2, 10); */
+  background-color: rgb(3, 2, 10);
   display: flex;
   justify-content: center;
   align-items: center;
-  /* animation: bg 6s ease-in-out 1 forwards; */
+  animation: bg 3s ease-in-out 1 forwards;
+  animation-delay: 10s;
+}
+@keyframes bg {
+  from {
+    background-color: rgb(3, 2, 10);
+  }
+  to {
+    background-color: rgb(12, 8, 37);
+  }
 }
 
 h1 {

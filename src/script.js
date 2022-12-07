@@ -72,8 +72,8 @@ gltfLoader.load("spider.gltf", (gltf) => {
   t1.to(
     gltf.scene.rotation,
     {
-      y: 4.21,
-      duration: 3,
+      y: -8,
+      duration: 6,
       ease: "power1.inOut",
     },
     "=-3"
@@ -99,8 +99,146 @@ gltfLoader.load("scene.gltf", (gltf1) => {
   t2.to(gltf1.scene.rotation, { z: 3.2, duration: 5, ease: "power3.inOut" });
   t2.to(
     gltf1.scene.position,
-    { z: 3.5, duration: 5, ease: "power3.inOut" },
+    { z: 10, duration: 5, ease: "power3.inOut" },
     "=-3"
+  );
+});
+
+let tBuilding1 = gsap.timeline();
+
+gltfLoader.load("./building/scene.gltf", (gltf3) => {
+  gltf3.scene.scale.set(5, 5, 5);
+  gltf3.scene.rotation.set(0, 5.2, 6.29);
+  gltf3.scene.position.set(0.01, -20, -0.71);
+  gltf3.scene.opacity = "1";
+  scene.add(gltf3.scene);
+
+  const building = gui.addFolder("building");
+
+  building.add(gltf3.scene.scale, "x").min(0).max(9).step(0.01);
+  building.add(gltf3.scene.scale, "y").min(0).max(9).step(0.01);
+  building.add(gltf3.scene.scale, "z").min(0).max(9).step(0.01);
+
+  building.add(gltf3.scene.rotation, "x").min(0).max(9).step(0.01);
+  building.add(gltf3.scene.rotation, "y").min(0).max(9).step(0.01);
+  building.add(gltf3.scene.rotation, "z").min(0).max(9).step(0.01);
+
+  building.add(gltf3.scene.position, "x").min(-10).max(10).step(0.01);
+  building.add(gltf3.scene.position, "y").min(-10).max(10).step(0.01);
+  building.add(gltf3.scene.position, "z").min(-30).max(10).step(0.01);
+
+  t2.to(
+    gltf3.scene.position,
+    {
+      y: 2,
+      duration: 10,
+      ease: "power3.inOut",
+    },
+    "=-2"
+  );
+  t2.to(
+    gltf3.scene.rotation,
+    {
+      y: 6.19,
+      x: -0.2,
+      duration: 10,
+      ease: "power3.inOut",
+    },
+    "=-10"
+  );
+});
+// let tLightning = gsap.timeline();
+
+// gltfLoader.load("./lightning/scene.gltf", (gltf4) => {
+//   gltf4.scene.scale.set(0, 0, 0);
+//   gltf4.scene.rotation.set(0, 3.32, 6.3);
+//   gltf4.scene.position.set(-0.21, -0.43, -8.21);
+//   gltf4.scene.opacity = "1";
+//   scene.add(gltf4.scene);
+
+//   const lightning = gui.addFolder("lightning");
+
+//   lightning.add(gltf4.scene.scale, "x").min(0).max(9).step(0.01);
+//   lightning.add(gltf4.scene.scale, "y").min(0).max(9).step(0.01);
+//   lightning.add(gltf4.scene.scale, "z").min(0).max(9).step(0.01);
+
+//   lightning.add(gltf4.scene.rotation, "x").min(0).max(9).step(0.01);
+//   lightning.add(gltf4.scene.rotation, "y").min(0).max(9).step(0.01);
+//   lightning.add(gltf4.scene.rotation, "z").min(0).max(9).step(0.01);
+
+//   lightning.add(gltf4.scene.position, "x").min(-10).max(10).step(0.01);
+//   lightning.add(gltf4.scene.position, "y").min(-10).max(10).step(0.01);
+//   lightning.add(gltf4.scene.position, "z").min(-30).max(10).step(0.01);
+
+//   tLightning.to(gltf4.scene.scale, {
+//     x: 2,
+//     y: 2,
+//     z: 2,
+//     duration: 2.5,
+//     delay: 5,
+//     ease: "power3.inOut",
+//   });
+//   tLightning.to(gltf4.scene.scale, {
+//     x: 0,
+//     y: 0,
+//     z: 0,
+//     duration: 0.5,
+//     ease: "power3.in",
+//   });
+// });
+let tGalaxy = gsap.timeline();
+
+gltfLoader.load("./galaxy/scene.gltf", (gltf5) => {
+  gltf5.scene.scale.set(10, 10, 10);
+  gltf5.scene.rotation.set(0.93, 1.83, 5.1);
+  gltf5.scene.position.set(10, 50, 1.94);
+  scene.add(gltf5.scene);
+
+  const galaxy = gui.addFolder("galaxy");
+
+  galaxy.add(gltf5.scene.scale, "x").min(0).max(100).step(0.01);
+  galaxy.add(gltf5.scene.scale, "y").min(0).max(100).step(0.01);
+  galaxy.add(gltf5.scene.scale, "z").min(0).max(100).step(0.01);
+
+  galaxy.add(gltf5.scene.rotation, "x").min(0).max(9).step(0.01);
+  galaxy.add(gltf5.scene.rotation, "y").min(0).max(9).step(0.01);
+  galaxy.add(gltf5.scene.rotation, "z").min(0).max(9).step(0.01);
+
+  galaxy.add(gltf5.scene.position, "x").min(-100).max(100).step(0.01);
+  galaxy.add(gltf5.scene.position, "y").min(-100).max(100).step(0.01);
+  galaxy.add(gltf5.scene.position, "z").min(-100).max(100).step(0.01);
+
+  tGalaxy.to(
+    gltf5.scene.position,
+    {
+      y: 10,
+      x: 100,
+      z: 50,
+      duration: 15,
+      ease: "power3.inOut",
+    },
+    "=-15"
+  );
+  tGalaxy.to(
+    gltf5.scene.rotation,
+    {
+      y: 2,
+      duration: 15,
+      ease: "power3.inOut",
+    },
+    "=-15"
+  );
+
+  tGalaxy.to(
+    gltf5.scene.scale,
+    {
+      x: 50,
+      y: 50,
+      z: 50,
+      duration: 15,
+      ease: "power3.inOut",
+    },
+    "=-15"
   );
 });
 
@@ -136,13 +274,14 @@ loader.load("cloud.png", function (texture) {
 let tLight1 = gsap.timeline();
 let tLight2 = gsap.timeline();
 let tLight3 = gsap.timeline();
+let tLight4 = gsap.timeline();
 
-const pointLight = new THREE.PointLight(0x4a40e6, 10);
+const pointLight = new THREE.PointLight(0x6e5593, 10);
 pointLight.scale.set(0.3, 0.3, 0.3);
 pointLight.position.x = 1.4;
 pointLight.position.y = -3.5;
 pointLight.position.z = -10;
-pointLight.intensity = 7.5;
+pointLight.intensity = 0.2;
 scene.add(pointLight);
 
 const light1 = gui.addFolder("light1");
@@ -180,7 +319,7 @@ pointLight2.scale.set(0.3, 0.3, 0.3);
 pointLight2.position.x = -1.4;
 pointLight2.position.y = -30;
 pointLight2.position.z = 10;
-pointLight2.intensity = 39;
+pointLight2.intensity = -1;
 scene.add(pointLight2);
 
 const light2 = gui.addFolder("light2");
@@ -214,11 +353,11 @@ const pointLightHelper2 = new THREE.PointLightHelper(pointLight2, 2);
  * Light  3
  */
 const pointLight3 = new THREE.PointLight(0xaf7f7f, 10);
-pointLight3.scale.set(0.3, 0.3, 0.3);
+pointLight3.scale.set(0.1, 0.1, 0.1);
 pointLight3.position.x = -5.9;
 pointLight3.position.y = -10;
 pointLight3.position.z = 3.2;
-pointLight3.intensity = 32;
+pointLight3.intensity = 1;
 scene.add(pointLight3);
 
 const light3 = gui.addFolder("light3");
@@ -247,6 +386,46 @@ tLight3.from(pointLight3.position, {
 
 const pointLightHelper3 = new THREE.PointLightHelper(pointLight3, 2);
 scene.add(pointLightHelper3);
+
+/**
+ * Light  4 directionnel
+ */
+const directionalLight = new THREE.DirectionalLight(0xa558d9, 0.5);
+directionalLight.scale.set(0.1, 0.1, 0.1);
+directionalLight.position.set(0, 10, 5.2);
+directionalLight.target.position.set(7.7, -2, 10);
+directionalLight.intensity = 20;
+scene.add(directionalLight);
+scene.add(directionalLight.target);
+
+const light4 = gui.addFolder("light4");
+
+light4.add(directionalLight.position, "x").min(-10).max(10).step(0.1);
+light4.add(directionalLight.position, "y").min(-10).max(10).step(0.1);
+light4.add(directionalLight.position, "z").min(-50).max(10).step(0.1);
+
+light4.add(directionalLight.target.position, "x").min(-10).max(10).step(0.1);
+light4.add(directionalLight.target.position, "y").min(-10).max(10).step(0.1);
+light4.add(directionalLight.target.position, "z").min(-50).max(10).step(0.1);
+light4.add(directionalLight, "intensity").min(-10).max(100).step(0.1);
+
+const light4Color = {
+  color: 0xffffff,
+};
+
+light4.addColor(light4Color, "color").onChange(() => {
+  directionalLight.color.set(light4Color.color);
+});
+
+tLight4.to(directionalLight.position, {
+  y: -10,
+  duration: 10,
+  delay: 13,
+  ease: "power1.inOut",
+});
+
+const pointLightHelper4 = new THREE.DirectionalLightHelper(directionalLight, 2);
+scene.add(pointLightHelper4);
 
 /**
  * Sizes
@@ -328,9 +507,9 @@ tcam.to(
 );
 tcam.to(camera.position, {
   y: 0,
-  z: 4,
+  z: 6,
 
-  duration: 3,
+  duration: 5,
   ease: "power1.inOut",
   delay: 1,
 });
@@ -344,6 +523,14 @@ tcam.to(
   },
   "=-4"
 );
+tcam.to(camera.position, {
+  x: -0.1,
+  y: -0.1,
+  z: 3.6,
+
+  duration: 5,
+  ease: "power1.inOut",
+});
 
 // animation tete vers le bas
 
