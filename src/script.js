@@ -5,7 +5,7 @@ import * as dat from "dat.gui";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { PointLightHelper } from "three";
 import gsap from "gsap";
-import { Timeline } from "gsap/gsap-core";
+import { timeline } from "gsap/gsap-core";
 
 const gltfLoader = new GLTFLoader();
 
@@ -127,7 +127,7 @@ gltfLoader.load("./building/scene.gltf", (gltf3) => {
   building.add(gltf3.scene.position, "y").min(-10).max(10).step(0.01);
   building.add(gltf3.scene.position, "z").min(-30).max(10).step(0.01);
 
-  t2.to(
+  tBuilding1.to(
     gltf3.scene.position,
     {
       y: 2,
@@ -136,7 +136,7 @@ gltfLoader.load("./building/scene.gltf", (gltf3) => {
     },
     "=-2"
   );
-  t2.to(
+  tBuilding1.to(
     gltf3.scene.rotation,
     {
       y: 6.19,
@@ -145,6 +145,21 @@ gltfLoader.load("./building/scene.gltf", (gltf3) => {
       ease: "power3.inOut",
     },
     "=-10"
+  );
+  tBuilding1.to(gltf3.scene.position, {
+    y: -100,
+    duration: 5,
+    delay: 5,
+    ease: "power3.inOut",
+  });
+  tBuilding1.to(
+    gltf3.scene.rotation,
+    {
+      z: 7,
+      duration: 5,
+      ease: "power3.inOut",
+    },
+    "=-6"
   );
 });
 // let tLightning = gsap.timeline();
@@ -240,33 +255,20 @@ gltfLoader.load("./galaxy/scene.gltf", (gltf5) => {
     },
     "=-15"
   );
-});
-
-let loader = new THREE.TextureLoader();
-loader.load("cloud.png", function (texture) {
-  cloudGeo = new THREE.BufferGeometry(500, 500);
-  cloudMaterial = new THREE.MeshLambertMaterial({
-    map: texture,
-    transparent: true,
+  tGalaxy.to(gltf5.scene.position, {
+    y: 300,
+    duration: 5,
+    ease: "power3.inOut",
   });
-
-  for (let p = 0; p < 25; p++) {
-    let cloud = new THREE.Mesh(cloudGeo, cloudMaterial);
-    cloud.position.set(
-      Math.random() * 800 - 400,
-      500,
-      Math.random() * 500 - 450
-    );
-    cloud.rotation.x = 1.16;
-    cloud.rotation.y = -0.12;
-    cloud.rotation.z = Math.random() * 360;
-    cloud.material.opacity = 1;
-    scene.add(cloud);
-
-    gui.add(cloud.position, "x").min(-10).max(10).step(0.1);
-    gui.add(cloud.position, "y").min(-10).max(10).step(0.1);
-    gui.add(cloud.position, "z").min(-50).max(10).step(0.1);
-  }
+  tGalaxy.to(
+    gltf5.scene.rotation,
+    {
+      y: 0.24,
+      duration: 5,
+      ease: "power3.inOut",
+    },
+    "=-5"
+  );
 });
 
 // Lights
@@ -420,7 +422,7 @@ light4.addColor(light4Color, "color").onChange(() => {
 tLight4.to(directionalLight.position, {
   y: -10,
   duration: 10,
-  delay: 13,
+  delay: 10,
   ease: "power1.inOut",
 });
 
@@ -469,13 +471,6 @@ camera.rotation.x = 0;
 camera.rotation.y = 0;
 camera.rotation.z = 0;
 
-// camera.position.x = -0.3;
-// camera.position.y = -0.1;
-// camera.position.z = 2.3;
-
-// camera.rotation.x = -1.6;
-// camera.rotation.y = -2.2;
-// camera.rotation.z = 5.3;
 scene.add(camera);
 
 // const camera = gui.addFolder("camera");
@@ -524,104 +519,13 @@ tcam.to(
   "=-4"
 );
 tcam.to(camera.position, {
-  x: -0.1,
-  y: -0.1,
-  z: 3.6,
+  x: -0.5,
+  y: 0,
+  z: 3.4,
 
   duration: 5,
   ease: "power1.inOut",
 });
-
-// animation tete vers le bas
-
-// tcam.to(camera.position, {
-//   y: 1,
-//   z: 3,
-
-//   duration: 3,
-//   ease: "power1.inOut",
-//   delay: 4,
-// });
-// tcam.to(
-//   camera.rotation,
-//   {
-//     x: 1,
-
-//     duration: 4,
-//     ease: "power2.inOut",
-//   },
-//   "=-4"
-// );
-// tcam.to(
-//   camera.rotation,
-//   {
-//     x: -0.4,
-
-//     duration: 2,
-//     ease: "power2.inOut",
-//   },
-//   "=-2"
-// );
-// tcam.to(
-//   camera.rotation,
-//   {
-//     z: 2.5,
-
-//     duration: 2,
-//     ease: "power2.inOut",
-//   },
-//   "=-2"
-// );
-// tcam.to(
-//   camera.rotation,
-//   {
-//     x: -1.4,
-//     z: 3,
-
-//     duration: 2,
-//     ease: "power2.inOut",
-//   },
-//   "=-2"
-// );
-// tcam.to(
-//   camera.position,
-//   {
-//     x: -0.3,
-//     y: 2.1,
-//     z: 2.7,
-
-//     duration: 2,
-//     ease: "power2.inOut",
-//   },
-//   "=-2"
-// );
-// tcam.to(
-//   camera.position,
-//   {
-//     x: 0,
-//     y: 0.8,
-//     z: 3,
-
-//     duration: 2,
-//     ease: "power2.inOut",
-//   },
-//   "=-2"
-// );
-// tcam.to(
-//   camera.rotation,
-//   {
-//     x: -0.3,
-//     y: -0.3,
-//     z: 2.5,
-
-//     duration: 2,
-//     ease: "power2.inOut",
-//   },
-//   "=-2"
-// );
-// Controls
-// const controls = new OrbitControls(camera, canvas)
-// controls.enableDamping = true
 
 /**
  * Renderer
@@ -630,6 +534,7 @@ const renderer = new THREE.WebGLRenderer({
   canvas: canvas,
   alpha: true,
 });
+
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 4));
 
