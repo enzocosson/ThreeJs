@@ -131,7 +131,7 @@ gltfLoader.load("./building/scene.gltf", (gltf3) => {
     gltf3.scene.position,
     {
       y: 2,
-      duration: 10,
+      duration: 20,
       ease: "power3.inOut",
     },
     "=-2"
@@ -141,17 +141,20 @@ gltfLoader.load("./building/scene.gltf", (gltf3) => {
     {
       y: 6.19,
       x: -0.2,
-      duration: 10,
+      duration: 20,
       ease: "power3.inOut",
     },
-    "=-10"
+    "=-20"
   );
-  tBuilding1.to(gltf3.scene.position, {
-    y: -100,
-    duration: 5,
-    delay: 5,
-    ease: "power3.inOut",
-  });
+  tBuilding1.to(
+    gltf3.scene.position,
+    {
+      y: -100,
+      duration: 5,
+      ease: "power3.inOut",
+    },
+    "=-5"
+  );
   tBuilding1.to(
     gltf3.scene.rotation,
     {
@@ -271,6 +274,69 @@ gltfLoader.load("./galaxy/scene.gltf", (gltf5) => {
   );
 });
 
+// empire state building
+
+let tEmpire = gsap.timeline();
+
+gltfLoader.load("./empireStateBuilding/scene2.gltf", (gltf6) => {
+  gltf6.scene.scale.set(10, 10, 10);
+  gltf6.scene.rotation.set(1.1, 1.23, 5);
+  gltf6.scene.position.set(33.23, -39.5, -37.35);
+  scene.add(gltf6.scene);
+
+  const empire2 = gui.addFolder("empire2");
+
+  empire2.add(gltf6.scene.scale, "x").min(0).max(100).step(0.01);
+  empire2.add(gltf6.scene.scale, "y").min(0).max(100).step(0.01);
+  empire2.add(gltf6.scene.scale, "z").min(0).max(100).step(0.01);
+
+  empire2.add(gltf6.scene.rotation, "x").min(0).max(9).step(0.01);
+  empire2.add(gltf6.scene.rotation, "y").min(0).max(9).step(0.01);
+  empire2.add(gltf6.scene.rotation, "z").min(0).max(9).step(0.01);
+
+  empire2.add(gltf6.scene.position, "x").min(-100).max(100).step(0.01);
+  empire2.add(gltf6.scene.position, "y").min(-100).max(100).step(0.01);
+  empire2.add(gltf6.scene.position, "z").min(-100).max(100).step(0.01);
+
+  tEmpire.from(gltf6.scene.position, {
+    y: -100,
+    duration: 10,
+    delay: 12,
+    ease: "power3.inOut",
+  });
+});
+
+// empire state building 2
+
+let tEmpire2 = gsap.timeline();
+
+gltfLoader.load("./empireStateBuilding/scene.gltf", (gltf7) => {
+  gltf7.scene.scale.set(10, 10, 10);
+  gltf7.scene.rotation.set(1.13, 1.93, 5.5);
+  gltf7.scene.position.set(17.79, -35.14, -28.5);
+  scene.add(gltf7.scene);
+
+  const empire = gui.addFolder("empire");
+
+  empire.add(gltf7.scene.scale, "x").min(0).max(100).step(0.01);
+  empire.add(gltf7.scene.scale, "y").min(0).max(100).step(0.01);
+  empire.add(gltf7.scene.scale, "z").min(0).max(100).step(0.01);
+
+  empire.add(gltf7.scene.rotation, "x").min(0).max(9).step(0.01);
+  empire.add(gltf7.scene.rotation, "y").min(0).max(9).step(0.01);
+  empire.add(gltf7.scene.rotation, "z").min(0).max(9).step(0.01);
+
+  empire.add(gltf7.scene.position, "x").min(-100).max(100).step(0.01);
+  empire.add(gltf7.scene.position, "y").min(-100).max(100).step(0.01);
+  empire.add(gltf7.scene.position, "z").min(-100).max(100).step(0.01);
+
+  tEmpire2.from(gltf7.scene.position, {
+    y: -100,
+    duration: 10,
+    delay: 10,
+    ease: "power3.inOut",
+  });
+});
 // Lights
 
 let tLight1 = gsap.timeline();
@@ -519,7 +585,7 @@ tcam.to(
   "=-4"
 );
 tcam.to(camera.position, {
-  x: -0.5,
+  x: -0.75,
   y: 0,
   z: 3.4,
 
