@@ -344,12 +344,12 @@ let tLight2 = gsap.timeline();
 let tLight3 = gsap.timeline();
 let tLight4 = gsap.timeline();
 
-const pointLight = new THREE.PointLight(0x6e5593, 10);
+const pointLight = new THREE.AmbientLight(0xe55858, 10);
 pointLight.scale.set(0.3, 0.3, 0.3);
 pointLight.position.x = 1.4;
 pointLight.position.y = -3.5;
 pointLight.position.z = -10;
-pointLight.intensity = 0.2;
+pointLight.intensity = 5;
 scene.add(pointLight);
 
 const light1 = gui.addFolder("light1");
@@ -458,11 +458,11 @@ scene.add(pointLightHelper3);
 /**
  * Light  4 directionnel
  */
-const directionalLight = new THREE.DirectionalLight(0xa558d9, 0.5);
+const directionalLight = new THREE.DirectionalLight(0xffacac, 0.5);
 directionalLight.scale.set(0.1, 0.1, 0.1);
 directionalLight.position.set(0, 10, 5.2);
 directionalLight.target.position.set(7.7, -2, 10);
-directionalLight.intensity = 20;
+directionalLight.intensity = 0.2;
 scene.add(directionalLight);
 scene.add(directionalLight.target);
 
@@ -633,10 +633,10 @@ const tick = () => {
   const elapsedTime = clock.getElapsedTime();
 
   // // Update objects
-  // gltf.scene.children[0].rotation.y = 0.5 * elapsedTime;
+  // gltf2.scene.children[0].rotation.y = 0.5 * elapsedTime;
 
   // Update Orbital Controls
-  // controls.update()
+  // controls.update();
 
   // Render
   renderer.render(scene, camera);
