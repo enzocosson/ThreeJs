@@ -169,7 +169,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: 121vh;
   z-index: 10;
   stroke-dasharray: 10000px;
   stroke-dashoffset: 10000px;
