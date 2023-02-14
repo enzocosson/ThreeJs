@@ -143,6 +143,7 @@ body {
   position: absolute;
   top: 0;
   left: -100%;
+  height: 100vh;
   z-index: 0;
   perspective: 1000px;
   transform: rotateX(50deg) rotateY(501deg) rotateZ(120deg);
@@ -160,11 +161,15 @@ body {
     transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
   }
 }
+.container_gltf .rightSlide_img path{
+  height: 100%;
+}
 .container_gltf .redLine {
   pointer-events: none;
   position: absolute;
   top: 0;
   left: 0;
+  height: 100vh;
   z-index: 10;
   stroke-dasharray: 10000px;
   stroke-dashoffset: 10000px;
@@ -172,6 +177,9 @@ body {
   animation: stroke-dash 6s ease-in-out 1 forwards;
   -webkit-animation-delay: calc(16s + 2s);
   animation-delay: calc(16s + 2s);
+}
+.container_gltf .redLine path{
+  height: 100%;
 }
 @-webkit-keyframes stroke-dash {
   to {

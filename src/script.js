@@ -1,16 +1,16 @@
 import "./style.css";
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+// import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import * as dat from "dat.gui";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-import { PointLightHelper } from "three";
+// import { PointLightHelper } from "three";
 import gsap from "gsap";
-import { timeline } from "gsap/gsap-core";
+// import { timeline } from "gsap/gsap-core";
 
 const gltfLoader = new GLTFLoader();
 
 // Debug
-const gui = new dat.GUI();
+// const gui = new dat.GUI();
 
 // Canvas
 const canvas = document.querySelector("canvas.webgl");
@@ -32,19 +32,19 @@ gltfLoader.load("spider.gltf", (gltf) => {
   gltf.scene.opacity = "1";
   scene.add(gltf.scene);
 
-  const milesMorales = gui.addFolder("milesMorales");
+  // const milesMorales = gui.addFolder("milesMorales");
 
-  milesMorales.add(gltf.scene.scale, "x").min(0).max(9).step(0.01);
-  milesMorales.add(gltf.scene.scale, "y").min(0).max(9).step(0.01);
-  milesMorales.add(gltf.scene.scale, "z").min(0).max(9).step(0.01);
+  // milesMorales.add(gltf.scene.scale, "x").min(0).max(9).step(0.01);
+  // milesMorales.add(gltf.scene.scale, "y").min(0).max(9).step(0.01);
+  // milesMorales.add(gltf.scene.scale, "z").min(0).max(9).step(0.01);
 
-  milesMorales.add(gltf.scene.rotation, "x").min(0).max(9).step(0.01);
-  milesMorales.add(gltf.scene.rotation, "y").min(0).max(9).step(0.01);
-  milesMorales.add(gltf.scene.rotation, "z").min(0).max(9).step(0.01);
+  // milesMorales.add(gltf.scene.rotation, "x").min(0).max(9).step(0.01);
+  // milesMorales.add(gltf.scene.rotation, "y").min(0).max(9).step(0.01);
+  // milesMorales.add(gltf.scene.rotation, "z").min(0).max(9).step(0.01);
 
-  milesMorales.add(gltf.scene.position, "x").min(-10).max(10).step(0.01);
-  milesMorales.add(gltf.scene.position, "y").min(-10).max(10).step(0.01);
-  milesMorales.add(gltf.scene.position, "z").min(-30).max(10).step(0.01);
+  // milesMorales.add(gltf.scene.position, "x").min(-10).max(10).step(0.01);
+  // milesMorales.add(gltf.scene.position, "y").min(-10).max(10).step(0.01);
+  // milesMorales.add(gltf.scene.position, "z").min(-30).max(10).step(0.01);
 
   t1.from(gltf.scene.rotation, {
     y: 8,
@@ -87,15 +87,15 @@ gltfLoader.load("scene.gltf", (gltf1) => {
   gltf1.scene.position.set(0, 0, -5);
   scene.add(gltf1.scene);
 
-  const pixel = gui.addFolder("pixel");
+  // const pixel = gui.addFolder("pixel");
 
-  pixel.add(gltf1.scene.rotation, "x").min(0).max(9).step(0.1);
-  pixel.add(gltf1.scene.rotation, "y").min(0).max(9).step(0.1);
-  pixel.add(gltf1.scene.rotation, "z").min(0).max(9).step(0.01);
+  // pixel.add(gltf1.scene.rotation, "x").min(0).max(9).step(0.1);
+  // pixel.add(gltf1.scene.rotation, "y").min(0).max(9).step(0.1);
+  // pixel.add(gltf1.scene.rotation, "z").min(0).max(9).step(0.01);
 
-  pixel.add(gltf1.scene.position, "x").min(-10).max(10).step(0.1);
-  pixel.add(gltf1.scene.position, "y").min(-10).max(10).step(0.1);
-  pixel.add(gltf1.scene.position, "z").min(-30).max(10).step(0.1);
+  // pixel.add(gltf1.scene.position, "x").min(-10).max(10).step(0.1);
+  // pixel.add(gltf1.scene.position, "y").min(-10).max(10).step(0.1);
+  // pixel.add(gltf1.scene.position, "z").min(-30).max(10).step(0.1);
 
   t2.to(gltf1.scene.rotation, { z: 3.2, duration: 5, ease: "power3.inOut" });
   t2.to(
@@ -116,19 +116,19 @@ gltfLoader.load("./building/scene.gltf", (gltf3) => {
   gltf3.scene.opacity = "1";
   scene.add(gltf3.scene);
 
-  const building = gui.addFolder("building");
+  // const building = gui.addFolder("building");
 
-  building.add(gltf3.scene.scale, "x").min(0).max(9).step(0.01);
-  building.add(gltf3.scene.scale, "y").min(0).max(9).step(0.01);
-  building.add(gltf3.scene.scale, "z").min(0).max(9).step(0.01);
+  // building.add(gltf3.scene.scale, "x").min(0).max(9).step(0.01);
+  // building.add(gltf3.scene.scale, "y").min(0).max(9).step(0.01);
+  // building.add(gltf3.scene.scale, "z").min(0).max(9).step(0.01);
 
-  building.add(gltf3.scene.rotation, "x").min(0).max(9).step(0.01);
-  building.add(gltf3.scene.rotation, "y").min(0).max(9).step(0.01);
-  building.add(gltf3.scene.rotation, "z").min(0).max(9).step(0.01);
+  // building.add(gltf3.scene.rotation, "x").min(0).max(9).step(0.01);
+  // building.add(gltf3.scene.rotation, "y").min(0).max(9).step(0.01);
+  // building.add(gltf3.scene.rotation, "z").min(0).max(9).step(0.01);
 
-  building.add(gltf3.scene.position, "x").min(-10).max(10).step(0.01);
-  building.add(gltf3.scene.position, "y").min(-10).max(10).step(0.01);
-  building.add(gltf3.scene.position, "z").min(-30).max(10).step(0.01);
+  // building.add(gltf3.scene.position, "x").min(-10).max(10).step(0.01);
+  // building.add(gltf3.scene.position, "y").min(-10).max(10).step(0.01);
+  // building.add(gltf3.scene.position, "z").min(-30).max(10).step(0.01);
 
   tBuilding1.to(
     gltf3.scene.position,
@@ -215,19 +215,19 @@ gltfLoader.load("./galaxy/scene.gltf", (gltf5) => {
   gltf5.scene.position.set(10, 50, 1.94);
   scene.add(gltf5.scene);
 
-  const galaxy = gui.addFolder("galaxy");
+  // const galaxy = gui.addFolder("galaxy");
 
-  galaxy.add(gltf5.scene.scale, "x").min(0).max(100).step(0.01);
-  galaxy.add(gltf5.scene.scale, "y").min(0).max(100).step(0.01);
-  galaxy.add(gltf5.scene.scale, "z").min(0).max(100).step(0.01);
+  // galaxy.add(gltf5.scene.scale, "x").min(0).max(100).step(0.01);
+  // galaxy.add(gltf5.scene.scale, "y").min(0).max(100).step(0.01);
+  // galaxy.add(gltf5.scene.scale, "z").min(0).max(100).step(0.01);
 
-  galaxy.add(gltf5.scene.rotation, "x").min(0).max(9).step(0.01);
-  galaxy.add(gltf5.scene.rotation, "y").min(0).max(9).step(0.01);
-  galaxy.add(gltf5.scene.rotation, "z").min(0).max(9).step(0.01);
+  // galaxy.add(gltf5.scene.rotation, "x").min(0).max(9).step(0.01);
+  // galaxy.add(gltf5.scene.rotation, "y").min(0).max(9).step(0.01);
+  // galaxy.add(gltf5.scene.rotation, "z").min(0).max(9).step(0.01);
 
-  galaxy.add(gltf5.scene.position, "x").min(-100).max(100).step(0.01);
-  galaxy.add(gltf5.scene.position, "y").min(-100).max(100).step(0.01);
-  galaxy.add(gltf5.scene.position, "z").min(-100).max(100).step(0.01);
+  // galaxy.add(gltf5.scene.position, "x").min(-100).max(100).step(0.01);
+  // galaxy.add(gltf5.scene.position, "y").min(-100).max(100).step(0.01);
+  // galaxy.add(gltf5.scene.position, "z").min(-100).max(100).step(0.01);
 
   tGalaxy.to(
     gltf5.scene.position,
@@ -287,19 +287,19 @@ gltfLoader.load("./empireStateBuilding/scene2.gltf", (gltf6) => {
   gltf6.scene.position.set(33.23, -39.5, -37.35);
   scene.add(gltf6.scene);
 
-  const empire2 = gui.addFolder("empire2");
+  // const empire2 = gui.addFolder("empire2");
 
-  empire2.add(gltf6.scene.scale, "x").min(0).max(100).step(0.01);
-  empire2.add(gltf6.scene.scale, "y").min(0).max(100).step(0.01);
-  empire2.add(gltf6.scene.scale, "z").min(0).max(100).step(0.01);
+  // empire2.add(gltf6.scene.scale, "x").min(0).max(100).step(0.01);
+  // empire2.add(gltf6.scene.scale, "y").min(0).max(100).step(0.01);
+  // empire2.add(gltf6.scene.scale, "z").min(0).max(100).step(0.01);
 
-  empire2.add(gltf6.scene.rotation, "x").min(0).max(9).step(0.01);
-  empire2.add(gltf6.scene.rotation, "y").min(0).max(9).step(0.01);
-  empire2.add(gltf6.scene.rotation, "z").min(0).max(9).step(0.01);
+  // empire2.add(gltf6.scene.rotation, "x").min(0).max(9).step(0.01);
+  // empire2.add(gltf6.scene.rotation, "y").min(0).max(9).step(0.01);
+  // empire2.add(gltf6.scene.rotation, "z").min(0).max(9).step(0.01);
 
-  empire2.add(gltf6.scene.position, "x").min(-100).max(100).step(0.01);
-  empire2.add(gltf6.scene.position, "y").min(-100).max(100).step(0.01);
-  empire2.add(gltf6.scene.position, "z").min(-100).max(100).step(0.01);
+  // empire2.add(gltf6.scene.position, "x").min(-100).max(100).step(0.01);
+  // empire2.add(gltf6.scene.position, "y").min(-100).max(100).step(0.01);
+  // empire2.add(gltf6.scene.position, "z").min(-100).max(100).step(0.01);
 
   tEmpire.from(gltf6.scene.position, {
     y: -100,
@@ -319,19 +319,19 @@ gltfLoader.load("./empireStateBuilding/scene.gltf", (gltf7) => {
   gltf7.scene.position.set(17.79, -35.14, -28.5);
   scene.add(gltf7.scene);
 
-  const empire = gui.addFolder("empire");
+  // const empire = gui.addFolder("empire");
 
-  empire.add(gltf7.scene.scale, "x").min(0).max(100).step(0.01);
-  empire.add(gltf7.scene.scale, "y").min(0).max(100).step(0.01);
-  empire.add(gltf7.scene.scale, "z").min(0).max(100).step(0.01);
+  // empire.add(gltf7.scene.scale, "x").min(0).max(100).step(0.01);
+  // empire.add(gltf7.scene.scale, "y").min(0).max(100).step(0.01);
+  // empire.add(gltf7.scene.scale, "z").min(0).max(100).step(0.01);
 
-  empire.add(gltf7.scene.rotation, "x").min(0).max(9).step(0.01);
-  empire.add(gltf7.scene.rotation, "y").min(0).max(9).step(0.01);
-  empire.add(gltf7.scene.rotation, "z").min(0).max(9).step(0.01);
+  // empire.add(gltf7.scene.rotation, "x").min(0).max(9).step(0.01);
+  // empire.add(gltf7.scene.rotation, "y").min(0).max(9).step(0.01);
+  // empire.add(gltf7.scene.rotation, "z").min(0).max(9).step(0.01);
 
-  empire.add(gltf7.scene.position, "x").min(-100).max(100).step(0.01);
-  empire.add(gltf7.scene.position, "y").min(-100).max(100).step(0.01);
-  empire.add(gltf7.scene.position, "z").min(-100).max(100).step(0.01);
+  // empire.add(gltf7.scene.position, "x").min(-100).max(100).step(0.01);
+  // empire.add(gltf7.scene.position, "y").min(-100).max(100).step(0.01);
+  // empire.add(gltf7.scene.position, "z").min(-100).max(100).step(0.01);
 
   tEmpire2.from(gltf7.scene.position, {
     y: -100,
@@ -355,20 +355,20 @@ pointLight.position.z = -10;
 pointLight.intensity = 5;
 scene.add(pointLight);
 
-const light1 = gui.addFolder("light1");
+// const light1 = gui.addFolder("light1");
 
-light1.add(pointLight.position, "x").min(-10).max(10).step(0.1);
-light1.add(pointLight.position, "y").min(-10).max(10).step(0.1);
-light1.add(pointLight.position, "z").min(-50).max(10).step(0.1);
-light1.add(pointLight, "intensity").min(-10).max(100).step(0.1);
+// light1.add(pointLight.position, "x").min(-10).max(10).step(0.1);
+// light1.add(pointLight.position, "y").min(-10).max(10).step(0.1);
+// light1.add(pointLight.position, "z").min(-50).max(10).step(0.1);
+// light1.add(pointLight, "intensity").min(-10).max(100).step(0.1);
 
 const light1Color = {
   color: 0xffffff,
 };
 
-light1.addColor(light1Color, "color").onChange(() => {
-  pointLight.color.set(light1Color.color);
-});
+// light1.addColor(light1Color, "color").onChange(() => {
+//   pointLight.color.set(light1Color.color);
+// });
 
 tLight1.to(pointLight.position, {
   x: -1.4,
@@ -379,7 +379,7 @@ tLight1.to(pointLight.position, {
   delay: 4.5,
 });
 
-const pointLightHelper = new THREE.PointLightHelper(pointLight, 2);
+// const pointLightHelper = new THREE.PointLightHelper(pointLight, 2);
 // scene.add(pointLightHelper);
 
 /**
@@ -393,20 +393,20 @@ pointLight2.position.z = 10;
 pointLight2.intensity = -1;
 scene.add(pointLight2);
 
-const light2 = gui.addFolder("light2");
+// const light2 = gui.addFolder("light2");
 
-light2.add(pointLight2.position, "x").min(-10).max(10).step(0.1);
-light2.add(pointLight2.position, "y").min(-10).max(10).step(0.1);
-light2.add(pointLight2.position, "z").min(-50).max(10).step(0.1);
-light2.add(pointLight2, "intensity").min(-10).max(100).step(0.1);
+// light2.add(pointLight2.position, "x").min(-10).max(10).step(0.1);
+// light2.add(pointLight2.position, "y").min(-10).max(10).step(0.1);
+// light2.add(pointLight2.position, "z").min(-50).max(10).step(0.1);
+// light2.add(pointLight2, "intensity").min(-10).max(100).step(0.1);
 
 const light2Color = {
   color: 0xffffff,
 };
 
-light2.addColor(light2Color, "color").onChange(() => {
-  pointLight2.color.set(light2Color.color);
-});
+// light2.addColor(light2Color, "color").onChange(() => {
+//   pointLight2.color.set(light2Color.color);
+// });
 
 tLight2.to(pointLight2.position, {
   x: 5.7,
@@ -417,7 +417,7 @@ tLight2.to(pointLight2.position, {
   delay: 6,
 });
 
-const pointLightHelper2 = new THREE.PointLightHelper(pointLight2, 2);
+// const pointLightHelper2 = new THREE.PointLightHelper(pointLight2, 2);
 // scene.add(pointLightHelper2);
 
 /**
@@ -431,20 +431,20 @@ pointLight3.position.z = 3.2;
 pointLight3.intensity = 1;
 scene.add(pointLight3);
 
-const light3 = gui.addFolder("light3");
+// const light3 = gui.addFolder("light3");
 
-light3.add(pointLight3.position, "x").min(-10).max(10).step(0.1);
-light3.add(pointLight3.position, "y").min(-10).max(10).step(0.1);
-light3.add(pointLight3.position, "z").min(-50).max(10).step(0.1);
-light3.add(pointLight3, "intensity").min(-10).max(100).step(0.1);
+// light3.add(pointLight3.position, "x").min(-10).max(10).step(0.1);
+// light3.add(pointLight3.position, "y").min(-10).max(10).step(0.1);
+// light3.add(pointLight3.position, "z").min(-50).max(10).step(0.1);
+// light3.add(pointLight3, "intensity").min(-10).max(100).step(0.1);
 
 const light3Color = {
   color: 0xffffff,
 };
 
-light3.addColor(light3Color, "color").onChange(() => {
-  pointLight3.color.set(light3Color.color);
-});
+// light3.addColor(light3Color, "color").onChange(() => {
+//   pointLight3.color.set(light3Color.color);
+// });
 
 tLight3.from(pointLight3.position, {
   x: 5.7,
@@ -455,8 +455,8 @@ tLight3.from(pointLight3.position, {
   delay: 5,
 });
 
-const pointLightHelper3 = new THREE.PointLightHelper(pointLight3, 2);
-scene.add(pointLightHelper3);
+// const pointLightHelper3 = new THREE.PointLightHelper(pointLight3, 2);
+// scene.add(pointLightHelper3);
 
 /**
  * Light  4 directionnel
@@ -469,24 +469,24 @@ directionalLight.intensity = 0.2;
 scene.add(directionalLight);
 scene.add(directionalLight.target);
 
-const light4 = gui.addFolder("light4");
+// const light4 = gui.addFolder("light4");
 
-light4.add(directionalLight.position, "x").min(-10).max(10).step(0.1);
-light4.add(directionalLight.position, "y").min(-10).max(10).step(0.1);
-light4.add(directionalLight.position, "z").min(-50).max(10).step(0.1);
+// light4.add(directionalLight.position, "x").min(-10).max(10).step(0.1);
+// light4.add(directionalLight.position, "y").min(-10).max(10).step(0.1);
+// light4.add(directionalLight.position, "z").min(-50).max(10).step(0.1);
 
-light4.add(directionalLight.target.position, "x").min(-10).max(10).step(0.1);
-light4.add(directionalLight.target.position, "y").min(-10).max(10).step(0.1);
-light4.add(directionalLight.target.position, "z").min(-50).max(10).step(0.1);
-light4.add(directionalLight, "intensity").min(-10).max(100).step(0.1);
+// light4.add(directionalLight.target.position, "x").min(-10).max(10).step(0.1);
+// light4.add(directionalLight.target.position, "y").min(-10).max(10).step(0.1);
+// light4.add(directionalLight.target.position, "z").min(-50).max(10).step(0.1);
+// light4.add(directionalLight, "intensity").min(-10).max(100).step(0.1);
 
 const light4Color = {
   color: 0xffffff,
 };
 
-light4.addColor(light4Color, "color").onChange(() => {
-  directionalLight.color.set(light4Color.color);
-});
+// light4.addColor(light4Color, "color").onChange(() => {
+//   directionalLight.color.set(light4Color.color);
+// });
 
 tLight4.to(directionalLight.position, {
   y: -10,
@@ -495,8 +495,8 @@ tLight4.to(directionalLight.position, {
   ease: "power1.inOut",
 });
 
-const pointLightHelper4 = new THREE.DirectionalLightHelper(directionalLight, 2);
-scene.add(pointLightHelper4);
+// const pointLightHelper4 = new THREE.DirectionalLightHelper(directionalLight, 2);
+// scene.add(pointLightHelper4);
 
 /**
  * Sizes
@@ -543,13 +543,13 @@ camera.rotation.z = 0;
 scene.add(camera);
 
 // const camera = gui.addFolder("camera");
-gui.add(camera.position, "x", -10, 10).step(0.1);
-gui.add(camera.position, "y", -10, 10).step(0.1);
-gui.add(camera.position, "z", -10, 10).step(0.1);
+// gui.add(camera.position, "x", -10, 10).step(0.1);
+// gui.add(camera.position, "y", -10, 10).step(0.1);
+// gui.add(camera.position, "z", -10, 10).step(0.1);
 
-gui.add(camera.rotation, "x", -10, 10).step(0.1);
-gui.add(camera.rotation, "y", -10, 10).step(0.1);
-gui.add(camera.rotation, "z", -10, 10).step(0.1);
+// gui.add(camera.rotation, "x", -10, 10).step(0.1);
+// gui.add(camera.rotation, "y", -10, 10).step(0.1);
+// gui.add(camera.rotation, "z", -10, 10).step(0.1);
 
 tcam.to(camera.position, {
   y: -0.1,
