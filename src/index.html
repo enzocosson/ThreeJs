@@ -10,6 +10,9 @@
 
   </head>
   <body>
+    <div class="loader">
+
+    </div>
     <canvas class="webgl"></canvas>
 
     <div class="container_gltf">
@@ -46,5 +49,12 @@
           <span class="bandeBlanche"></span>
   </div>
   </body>
+  <script>
+    const loader = document.querySelector(".loader");
+
+    window.addEventListener("load", () => {
+      loader.classList.add("loader_finish")
+    });
+  </script>
 
 </html>

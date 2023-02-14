@@ -24,7 +24,6 @@ const material = new THREE.ShaderMaterial();
 // spiderman
 
 let t1 = gsap.timeline();
-let t2 = gsap.timeline();
 
 gltfLoader.load("spider.gltf", (gltf) => {
   gltf.scene.scale.set(0.1, 0.1, 0.1);
@@ -80,6 +79,8 @@ gltfLoader.load("spider.gltf", (gltf) => {
   );
 });
 
+let t2 = gsap.timeline();
+
 gltfLoader.load("scene.gltf", (gltf1) => {
   gltf1.scene.scale.set(1, 1, 1);
   gltf1.scene.rotation.set(0, 0, 0);
@@ -102,6 +103,8 @@ gltfLoader.load("scene.gltf", (gltf1) => {
     { z: 10, duration: 5, ease: "power3.inOut" },
     "=-3"
   );
+
+  t2.play();
 });
 
 let tBuilding1 = gsap.timeline();
@@ -632,12 +635,6 @@ const tick = () => {
 
   const elapsedTime = clock.getElapsedTime();
 
-  // // Update objects
-  // gltf2.scene.children[0].rotation.y = 0.5 * elapsedTime;
-
-  // Update Orbital Controls
-  // controls.update();
-
   // Render
   renderer.render(scene, camera);
 
@@ -646,32 +643,3 @@ const tick = () => {
 };
 
 tick();
-
-// -----------SKY
-
-// const ambient = new THREE.AmbientLight(0x555555);
-// console.log(ambient);
-
-// const directionalLight = new THREE.DirectionalLight(0xffeedd);
-// directionalLight.position.set(0, 0, 1);
-// scene.add(directionalLight);
-
-// scene.fog = new THREE.FogExp2(0x11111f, 0.001);
-// renderer.setClearColor(scene.fog.color);
-
-// cloudParticles.push(cloud);
-
-// function animate() {
-//   cloudParticles.forEach((p) => {
-//     p.rotation.z -= 0.002;
-//   });
-// }
-// flash = new THREE.PointLight(0x062d89, 30, 500, 1.7);
-// flash.position.set(200, 300, 100);
-// scene.add(flash);
-
-// if (Math.random() > 0.93 || flash.power > 100) {
-//   if (flash.power < 100)
-//     flash.position.set(Math.random() * 400, 300 + Math.random() * 200, 100);
-//   flash.power = 50 + Math.random() * 500;
-// }
